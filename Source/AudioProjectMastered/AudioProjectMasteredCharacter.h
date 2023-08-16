@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
 #include "InputActionValue.h"
+#include "MainWidget.h"
 #include "AudioProjectMasteredCharacter.generated.h"
 
 
@@ -40,14 +41,46 @@ class AAudioProjectMasteredCharacter : public ACharacter
 public:
 	AAudioProjectMasteredCharacter();
 	
+	// gets main widget reference
+	// Widget instances
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> MainWidgetClass;
+	UUserWidget *MainWidgetInstance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> EndWidgetClass;
+	UUserWidget *EndWidgetInstance;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	TSubclassOf<UUserWidget> WinWidgetClass;
+	UUserWidget *WinWidgetInstance;
+
+	/** Returns CameraBoom subobject **/
+	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
+	/** Returns FollowCamera subobject **/
+	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = Points)
+	int Points = 0; 
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite)
+	bool Dead = false; 
+
+
+	UFUNCTION(BlueprintCallable)
+	void Death();
+
+	UFUNCTION(BlueprintCallable)
+	void Win();
+
 
 protected:
 
 	/** Called for movement input */
 	void Move(const FInputActionValue& Value);
 
-	/** Called for looking input */
-	void Look(const FInputActionValue& Value);
+	// /** Called for looking input */
+	// void Look(const FInputActionValue& Value);
 			
 
 protected:
@@ -57,10 +90,7 @@ protected:
 	// To add mapping context
 	virtual void BeginPlay();
 
-public:
-	/** Returns CameraBoom subobject **/
-	FORCEINLINE class USpringArmComponent* GetCameraBoom() const { return CameraBoom; }
-	/** Returns FollowCamera subobject **/
-	FORCEINLINE class UCameraComponent* GetFollowCamera() const { return FollowCamera; }
+
+	
 };
 

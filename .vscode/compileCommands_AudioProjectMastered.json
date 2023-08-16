@@ -54,5 +54,53 @@
 			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
 		],
 		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\EndScreen.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\EndScreen.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\Enemy.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\Enemy.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\MainWidget.cpp",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
+	},
+	{
+		"file": "C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\Source\\AudioProjectMastered\\MainWidget.h",
+		"arguments": [
+			"C:\\Program Files\\Microsoft Visual Studio\\2022\\Community\\VC\\Tools\\MSVC\\14.32.31326\\bin\\Hostx64\\x64\\cl.exe",
+			"@C:\\Users\\Jon10\\OneDrive\\Documents\\GitHub\\Unreal Projects\\AudioProjectMastered\\AudioProject\\.vscode\\compileCommands_AudioProjectMastered\\AudioProjectMastered.261.rsp"
+		],
+		"directory": "E:\\Epic Games\\UE_5.2\\Engine\\Source"
 	}
 ]
