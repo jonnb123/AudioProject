@@ -14,7 +14,7 @@ class AUDIOPROJECTMASTERED_API UEndScreen : public UUserWidget
 {
 	GENERATED_BODY()
 
-public:
+protected:
 	UPROPERTY(meta = ( BindWidget ))
 	class UCanvasPanel* CanvasPanel; 
 

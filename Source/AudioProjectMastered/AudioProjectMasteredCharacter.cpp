@@ -46,22 +46,12 @@ AAudioProjectMasteredCharacter::AAudioProjectMasteredCharacter()
 	FollowCamera->SetupAttachment(CameraBoom, USpringArmComponent::SocketName); // Attach the camera to the end of the boom and let the boom adjust to match the controller orientation
 	FollowCamera->bUsePawnControlRotation = false;								// Camera does not rotate relative to arm
 
-	// Note: The skeletal mesh and anim blueprint references on the Mesh component (inherited from Character)
-	// are set in the derived blueprint asset named ThirdPersonCharacter (to avoid direct content references in C++)
 }
 
 void AAudioProjectMasteredCharacter::BeginPlay()
 {
 	// Call the base class
 	Super::BeginPlay();
-
-	if (WinWidgetClass)
-	{
-		if (WinWidgetInstance)
-		{
-			WinWidgetInstance->RemoveFromParent();
-		}
-	}
 
 	if (MainWidgetClass)
 	{
@@ -94,11 +84,6 @@ void AAudioProjectMasteredCharacter::SetupPlayerInputComponent(class UInputCompo
 	// Set up action bindings
 	if (UEnhancedInputComponent *EnhancedInputComponent = CastChecked<UEnhancedInputComponent>(PlayerInputComponent))
 	{
-
-		// Jumping
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Triggered, this, &ACharacter::Jump);
-		EnhancedInputComponent->BindAction(JumpAction, ETriggerEvent::Completed, this, &ACharacter::StopJumping);
-
 		// Moving
 		EnhancedInputComponent->BindAction(MoveAction, ETriggerEvent::Triggered, this, &AAudioProjectMasteredCharacter::Move);
 	}
@@ -106,24 +91,29 @@ void AAudioProjectMasteredCharacter::SetupPlayerInputComponent(class UInputCompo
 
 void AAudioProjectMasteredCharacter::Move(const FInputActionValue &Value)
 {
-	// input is a Vector2D
-	FVector2D MovementVector = Value.Get<FVector2D>();
+    // Extract movement input from the provided FInputActionValue.
+    FVector2D MovementVector = Value.Get<FVector2D>();
 
-	if (Controller != nullptr)
-	{
-		// find out which way is forward
-		const FRotator Rotation = Controller->GetControlRotation();
-		const FRotator YawRotation(0, Rotation.Yaw, 0);
+    // Check if the character has a valid controller.
+    if (Controller != nullptr)
+    {
+        // Get the current control rotation of the character's controller.
+        const FRotator Rotation = Controller->GetControlRotation();
 
-		// get right vector
-		const FVector UpDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Z);
+        // Create a rotation with yaw from Rotation and pitch/roll set to 0.
+        const FRotator YawRotation(0, Rotation.Yaw, 0);
 
-		// add movement in the Z-axis (up and down)
-		AddMovementInput(UpDirection, MovementVector.Y);
-	}
+        // Calculate the local up direction in the world based on YawRotation.
+        const FVector UpDirection = FRotationMatrix(YawRotation).GetUnitAxis(EAxis::Z);
+
+        // Add movement input in the Z-axis (up and down) using UpDirection and MovementVector.Y.
+        // MovementVector.Y is positive for upward movement and negative for downward movement.
+        AddMovementInput(UpDirection, MovementVector.Y);
+    }
 }
 
-void AAudioProjectMasteredCharacter::Death()
+
+void AAudioProjectMasteredCharacter::HandleCharacterDeath()
 {
 	if (MainWidgetInstance)
 	{
@@ -152,7 +142,7 @@ void AAudioProjectMasteredCharacter::Death()
 	Dead = true;
 }
 
-void AAudioProjectMasteredCharacter::Win()
+void AAudioProjectMasteredCharacter::HandleWin()
 {
 	if (MainWidgetInstance)
 	{
@@ -179,16 +169,3 @@ void AAudioProjectMasteredCharacter::Win()
 	PlayerController->bShowMouseCursor = true;
 	GetCharacterMovement()->MaxFlySpeed = 0;
 }
-
-// void AAudioProjectMasteredCharacter::Look(const FInputActionValue& Value)
-// {
-// 	// input is a Vector2D
-// 	FVector2D LookAxisVector = Value.Get<FVector2D>();
-
-// 	if (Controller != nullptr)
-// 	{
-// 		// add yaw and pitch input to controller
-// 		AddControllerYawInput(LookAxisVector.X);
-// 		AddControllerPitchInput(LookAxisVector.Y);
-// 	}
-// }

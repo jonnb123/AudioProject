@@ -10,7 +10,7 @@ FText UMainWidget::UpdateCharacterPoints()
     AAudioProjectMasteredCharacter *Character = Cast<AAudioProjectMasteredCharacter>(PlayerCharacter);
     if (Character)
     {
-        FString Text = FString::Printf(TEXT("%d"), Character->Points);
+        FString Text = FString::Printf(TEXT("%d"), Character->GetPoints());
         return FText::FromString(Text);
     }
     else

@@ -14,6 +14,7 @@ class AUDIOPROJECTMASTERED_API UWinScreen : public UUserWidget
 {
 	GENERATED_BODY()
 
+protected:
 	UPROPERTY(meta = (BindWidget))
 	class UCanvasPanel *CanvasPanel;
 

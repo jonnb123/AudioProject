@@ -21,9 +21,6 @@ void UWinScreen::RestartGame()
 {
     // Get the player controller
     APlayerController* PlayerController = UGameplayStatics::GetPlayerController(this, 0);
-    ACharacter *PlayerCharacter = UGameplayStatics::GetPlayerCharacter(GetWorld(), 0);
-    AAudioProjectMasteredCharacter *Character = Cast<AAudioProjectMasteredCharacter>(PlayerCharacter);
-    // Open the level by name (replace "YourLevelName" with the actual name of the level you want to open)
     RemoveFromParent();
     UGameplayStatics::OpenLevel(PlayerController, FName("ThirdPersonMap"));
     PlayerController->SetInputMode(FInputModeGameOnly());
@@ -35,7 +32,7 @@ FText UWinScreen::UpdateCharacterPoints()
     AAudioProjectMasteredCharacter *Character = Cast<AAudioProjectMasteredCharacter>(PlayerCharacter);
     if (Character)
     {
-        FString Text = FString::Printf(TEXT("%d"), Character->Points);
+        FString Text = FString::Printf(TEXT("%d"), Character->GetPoints());
         return FText::FromString(Text);
     }
     else

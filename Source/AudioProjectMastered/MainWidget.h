@@ -13,7 +13,8 @@ UCLASS()
 class AUDIOPROJECTMASTERED_API UMainWidget : public UUserWidget
 {
 	GENERATED_BODY()
-public:
+
+protected:
 	UPROPERTY(meta = (BindWidget))
 	class UCanvasPanel *CanvasPanel;
 
